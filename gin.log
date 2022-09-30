@@ -7,11 +7,23 @@
 [GIN-debug] GET    /v1/users/                --> golangAPI/service.FindAllUsers (5 handlers)
 [GIN-debug] GET    /v1/users/:id             --> golangAPI/service.FindByUserId (5 handlers)
 [GIN-debug] POST   /v1/users/                --> golangAPI/service.PostUser (5 handlers)
+[GIN-debug] POST   /v1/users/more            --> golangAPI/service.CreateUsers (5 handlers)
 [GIN-debug] DELETE /v1/users/:id             --> golangAPI/service.DeleteUser (5 handlers)
 [GIN-debug] PUT    /v1/users/:id             --> golangAPI/service.PutUser (5 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8000
-[GIN] 2022/09/30 - 14:34:21 | 401 |        18.8µs |             ::1 | GET      "/v1/users/"
-::1 - [2022-09-30 14:35:17.137743809 +0800 CST m=+59.830827630] GET /v1/users/ 200 639.949µs 
-[GIN] 2022/09/30 - 14:35:17 | 200 |     689.795µs |             ::1 | GET      "/v1/users/"
+::1 - [2022-10-01 01:26:54.41488079 +0800 CST m=+9.101982347] GET /v1/users/ 200 629.869µs 
+[GIN] 2022/10/01 - 01:26:54 | 200 |     698.269µs |             ::1 | GET      "/v1/users/"
+::1 - [2022-10-01 01:31:06.005662254 +0800 CST m=+260.692763815] POST /v1/users/more 400 138.511µs 
+[GIN] 2022/10/01 - 01:31:06 | 400 |     179.678µs |             ::1 | POST     "/v1/users/more"
+::1 - [2022-10-01 01:31:51.444476676 +0800 CST m=+306.131578236] POST /v1/users/more 400 50.45µs 
+[GIN] 2022/10/01 - 01:31:51 | 400 |      89.749µs |             ::1 | POST     "/v1/users/more"
+::1 - [2022-10-01 01:32:03.439530643 +0800 CST m=+318.126632206] POST /v1/users/more 200 52.165µs 
+[GIN] 2022/10/01 - 01:32:03 | 200 |      96.707µs |             ::1 | POST     "/v1/users/more"
+::1 - [2022-10-01 01:32:29.615070814 +0800 CST m=+344.302172374] GET /v1/users/ 200 274.317µs 
+[GIN] 2022/10/01 - 01:32:29 | 200 |     319.643µs |             ::1 | GET      "/v1/users/"
+::1 - [2022-10-01 01:32:45.52513868 +0800 CST m=+360.212240236] GET /v1/users/more 404 419.915µs 
+[GIN] 2022/10/01 - 01:32:45 | 404 |     462.638µs |             ::1 | GET      "/v1/users/more"
+::1 - [2022-10-01 01:32:50.489131774 +0800 CST m=+365.176233329] GET /v1/users/ 200 358.741µs 
+[GIN] 2022/10/01 - 01:32:50 | 200 |     415.176µs |             ::1 | GET      "/v1/users/"

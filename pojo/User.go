@@ -6,10 +6,15 @@ import (
 )
 
 type User struct {
-	Id       int    `json:"UserId"`
-	Name     string `json:"UserName"`
-	Password string `json:"UserPassword"`
-	Email    string `json:"UserEmail"`
+	Id       int    `json:"UserId" binding:"required"`
+	Name     string `json:"UserName" binding:"required,gt=5"`
+	Password string `json:"UserPassword" binding:"min=4,max=20,userpasd"`
+	Email    string `json:"UserEmail" binding:"email"`
+}
+
+type Users struct {
+	UserList     []User `json:"UserList" binding:"required,gt=0,lt=3"`
+	UserListSize int    `json:"UserListSize"`
 }
 
 func FindAllUsers() []User {
