@@ -2,7 +2,6 @@ package pojo
 
 import (
 	"golangAPI/database"
-	"log"
 )
 
 type User struct {
@@ -37,11 +36,7 @@ func CreateUser(user User) User {
 func DeleteUser(userId string) bool {
 	user := User{}
 	result := database.DBconnect.Where("id = ?", userId).Delete(&user)
-	log.Println(result)
-	if result.RowsAffected == 0 {
-		return false
-	}
-	return true
+	return result.RowsAffected > 0
 }
 
 func UpdateUser(userId string, user User) User {
