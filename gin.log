@@ -4,12 +4,25 @@
  - using env:	export GIN_MODE=release
  - using code:	gin.SetMode(gin.ReleaseMode)
 
-[GIN-debug] GET    /v1/users/                --> golangAPI/service.FindAllUsers (5 handlers)
-[GIN-debug] GET    /v1/users/:id             --> golangAPI/service.FindByUserId (5 handlers)
-[GIN-debug] POST   /v1/users/                --> golangAPI/service.PostUser (5 handlers)
-[GIN-debug] POST   /v1/users/more            --> golangAPI/service.CreateUsers (5 handlers)
-[GIN-debug] DELETE /v1/users/:id             --> golangAPI/service.DeleteUser (5 handlers)
-[GIN-debug] PUT    /v1/users/:id             --> golangAPI/service.PutUser (5 handlers)
+[GIN-debug] GET    /v1/users/                --> golangAPI/service.FindAllUsers (6 handlers)
+[GIN-debug] GET    /v1/users/:id             --> golangAPI/service.FindByUserId (6 handlers)
+[GIN-debug] POST   /v1/users/                --> golangAPI/service.PostUser (6 handlers)
+[GIN-debug] POST   /v1/users/more            --> golangAPI/service.CreateUsers (6 handlers)
+[GIN-debug] PUT    /v1/users/:id             --> golangAPI/service.PutUser (6 handlers)
+[GIN-debug] POST   /v1/users/login           --> golangAPI/service.LoginUser (6 handlers)
+[GIN-debug] GET    /v1/users/check           --> golangAPI/service.CheckUserSession (6 handlers)
+[GIN-debug] DELETE /v1/users/:id             --> golangAPI/service.DeleteUser (7 handlers)
+[GIN-debug] GET    /v1/users/logout          --> golangAPI/service.LogoutUser (7 handlers)
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :8000
+::1 - [2022-10-03 19:03:59.936473397 +0800 CST m=+19.022702880] GET /v1/users/check 401 112.385µs 
+[GIN] 2022/10/03 - 19:03:59 | 401 |     175.327µs |             ::1 | GET      "/v1/users/check"
+::1 - [2022-10-03 19:04:15.90315065 +0800 CST m=+34.989380133] POST /v1/users/login 200 781.252µs 
+[GIN] 2022/10/03 - 19:04:15 | 200 |     819.198µs |             ::1 | POST     "/v1/users/login"
+::1 - [2022-10-03 19:04:21.96248405 +0800 CST m=+41.048713539] GET /v1/users/check 200 69.59µs 
+[GIN] 2022/10/03 - 19:04:21 | 200 |     111.067µs |             ::1 | GET      "/v1/users/check"
+::1 - [2022-10-03 19:04:55.083749779 +0800 CST m=+74.169979263] GET /v1/users/logout 200 137.699µs 
+[GIN] 2022/10/03 - 19:04:55 | 200 |     180.148µs |             ::1 | GET      "/v1/users/logout"
+::1 - [2022-10-03 19:05:02.186097118 +0800 CST m=+81.272326601] GET /v1/users/check 401 60.895µs 
+[GIN] 2022/10/03 - 19:05:02 | 401 |     102.934µs |             ::1 | GET      "/v1/users/check"

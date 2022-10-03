@@ -43,3 +43,10 @@ func UpdateUser(userId string, user User) User {
 	database.DBconnect.Model(&user).Where("id = ?", userId).Updates(user)
 	return user
 }
+
+//CheckUserPassword
+func CheckUserPassword(name string, password string) User {
+	user := User{}
+	database.DBconnect.Where("name = ? AND password = ?", name, password).First(&user)
+	return user
+}

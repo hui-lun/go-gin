@@ -1,6 +1,7 @@
 package service
 
 import (
+	"golangAPI/middlewares"
 	"golangAPI/pojo"
 	"log"
 	"net/http"
@@ -74,4 +75,42 @@ func CreateUsers(c *gin.Context) {
 		return
 	}
 	c.JSON(http.StatusOK, users)
+}
+
+//Login User
+func LoginUser(c *gin.Context) {
+	name := c.PostForm("name")
+	password := c.PostForm("password")
+	user := pojo.CheckUserPassword(name, password)
+	if user.Id == 0 {
+		c.JSON(http.StatusNotFound, "Error")
+		return
+	}
+	middlewares.SaveSession(c, user.Id)
+	c.JSON(http.StatusOK, gin.H{
+		"message": "Login Successfully",
+		"User":    user,
+		"Session": middlewares.GetSession(c),
+	})
+}
+
+//Logout User
+func LogoutUser(c *gin.Context) {
+	middlewares.ClearSession(c)
+	c.JSON(http.StatusOK, gin.H{
+		"message": "Logout Successfully",
+	})
+}
+
+// Check user Session
+func CheckUserSession(c *gin.Context) {
+	SessionId := middlewares.GetSession(c)
+	if SessionId == 0 {
+		c.JSON(http.StatusUnauthorized, "Error")
+		return
+	}
+	c.JSON(http.StatusOK, gin.H{
+		"message": "Check Session Successfully",
+		"User":    middlewares.GetSession(c),
+	})
 }
