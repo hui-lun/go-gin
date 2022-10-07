@@ -1,2 +1,2 @@
 # go-gin
-Just for gin practice!
+GIN go go go!
