@@ -1,2 +1,2 @@
 # go-gin
-GIN !
+GIN practice!
