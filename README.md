@@ -1,2 +1,2 @@
 # go-gin
-GIN go go go!
+GIN !
